@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'uname -a'
-                echo "This is the Week4 HomeWork"
+                echo "This is the Week_4 HomeWork"
             }
         }
     }
