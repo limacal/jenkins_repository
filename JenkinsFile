@@ -42,4 +42,4 @@ pipeline {
     }
   }
 }
-./gradlew jacocoTestReport
+/gradlew jacocoTestReport
