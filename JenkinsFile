@@ -38,9 +38,7 @@ pipeline {
             reportName: "JaCoCo Report"
           ]
         )
-.
-.
-./gradlew jacocoTestReport
+/gradlew jacocoTestReport
       }
     }
   }
