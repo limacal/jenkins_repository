@@ -1,22 +1,22 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: jenkins-ci
+  name: jenkins
   namespace: default
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: jenkins-ci
-      name: jenkins-ci
+      app: jenkins
+      name: jenkins
   template:
     metadata:
       labels:
-        app: jenkins-ci
-        name: jenkins-ci
+        app: jenkins
+        name: jenkins
     spec:
       containers:
-      - name: jenkins-ci
+      - name: jenkins
         imagePullPolicy: Always
         image: karolisr/jenkins-ci:latest
         ports:
@@ -49,12 +49,12 @@ spec:
           - name: KEY
             valueFrom:
               secretKeyRef:
-                name: webhookrelay-credentials
+                name: whr-credentials
                 key: key
           - name: SECRET
             valueFrom:
               secretKeyRef:
-                name: webhookrelay-credentials
+                name: whr-credentials
                 key: secret
           - name: BUCKET
             value: "jenkins"
@@ -76,7 +76,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: jenkins-ci-lb
+  name: jenkins-lb
 spec:
  type: LoadBalancer
  ports:
@@ -87,4 +87,4 @@ spec:
      port: 50000
      targetPort: 50000
  selector:
-   name: jenkins-ci
+   name: jenkins
