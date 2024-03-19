@@ -33,6 +33,20 @@ pipeline {
                 
             }
         }
+
+        stage('Run Other Tests') {
+            when {
+                // Run other tests on non-main branches
+                not {
+                    branch 'branch_2'
+                }
+            }
+            steps {
+                sh 'echo "Running other tests"'
+                // Run other tests here
+                
+            }
+        }
         
         stage('Generate Jacoco Report') {
             steps {
