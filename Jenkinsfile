@@ -16,7 +16,7 @@ pipeline {
             steps {
                 sh 'echo "Running CodeCoverage test"'
                 // Run CodeCoverage test here
-                
+                echo "This is the MAIN Branch"
             }
         }
         
@@ -30,7 +30,7 @@ pipeline {
             steps {
                 sh 'echo "Running other tests"'
                 // Run other tests here
-                
+                echo "This is the BRANCH_1 Branch"
             }
         }
 
@@ -44,7 +44,7 @@ pipeline {
             steps {
                 sh 'echo "Running other tests"'
                 // Run other tests here
-                
+                echo "This is the BRANCH_2 Branch"
             }
         }
         
