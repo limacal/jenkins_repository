@@ -11,29 +11,15 @@ pipeline {
         stage('Run Tests') {
             when {
                 // Run CodeCoverage test only on the main branch
-                branch 'main'
+                branch 'branch_2'
             }
             steps {
                 sh 'echo "Running CodeCoverage test"'
                 // Run CodeCoverage test here
-                
+                echo "This is the BRANCH_2 Branch"
             }
         }
-        
-        stage('Run Other Tests') {
-            when {
-                // Run other tests on non-main branches
-                not {
-                    branch 'branch_1'
-                }
-            }
-            steps {
-                sh 'echo "Running other tests"'
-                // Run other tests here
-                
-            }
-        }
-        
+
         stage('Generate Jacoco Report') {
             steps {
                 // Generate Jacoco report
