@@ -37,6 +37,7 @@ pipeline {
                 // Generate Jacoco report
                 sh 'echo "Generating Jacoco report"'
                 // Include the command to generate Jacoco report here
+                echo "This is the Jacoco Report"
             }
             post {
                 always {
