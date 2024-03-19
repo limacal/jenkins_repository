@@ -16,6 +16,7 @@ pipeline {
             steps {
                 sh 'echo "Running CodeCoverage test"'
                 // Run CodeCoverage test here
+                
             }
         }
         
@@ -23,12 +24,13 @@ pipeline {
             when {
                 // Run other tests on non-main branches
                 not {
-                    branch 'main'
+                    branch 'branch_1'
                 }
             }
             steps {
                 sh 'echo "Running other tests"'
                 // Run other tests here
+                
             }
         }
         
@@ -38,13 +40,15 @@ pipeline {
                 sh 'echo "Generating Jacoco report"'
                 // Include the command to generate Jacoco report here
                 echo "This is the Jacoco Report"
+                
             }
             post {
                 always {
                     // If tests fail, echo "tests fail!"
-                    echo 'tests pass!'
+                    echo 'TESTS FAILED!'
                     // If tests pass, echo "tests pass!"
-                    echo 'tests pass!'
+                    echo 'TESTS PASSED!'
+                    
                 }
             }
         }
