@@ -52,25 +52,6 @@ pipeline {
             }
         }
 
-          stage("Tests") {
-		      try {
-                    sh '''
-        	        pwd
-               		cd Chapter08/sample1
-                    ./gradlew test
-                    ./gradlew jacocoTestReport
-                    '''
-                    } catch (Exception E) {
-                        echo 'Failure detected'
-                    }
-                    // from the HTML publisher plugin
-                    // https://www.jenkins.io/doc/pipeline/steps/htmlpublisher/
-                    publishHTML (target: [
-                       //reportDir: 'Chapter08/sample1/build/reports/tests/test',
-                       reportDir: 'https://github.com/limacal/jenkins_repository/test'
-                       reportFiles: 'index.html',
-                       reportName: "JaCoCo Report"
-                    ])                       
-          }
+
     }
 }
