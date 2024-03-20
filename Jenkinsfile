@@ -1,23 +1,30 @@
 pipeline {
-    agent any
     stages {
-        stage('Build') {
-            steps {
-                // Your build steps here
-                sh 'echo "Building..."'
+        stage {
+            // Main Branch
+            try {
+                // Main Branch Testing
+            } catch (Exception E) {
+                // Echo 'error'
             }
+            // Publish HTML Report
         }
-        stage('Test') {
-            steps {
-                // Your test steps here
-                sh 'echo "Testing..."'
+        stage {
+            // Non-Main Branches
+            try {
+                // Non-Main Branch Testing
+            } catch (Exception E) {
+                // Echo 'error'
             }
+            // Publish HTML Report
         }
-        stage('Deploy') {
-            steps {
-                // Your deployment steps here
-                sh 'echo "Deploying..."'
-            }
+    }
+    post {
+        success {
+            // Echo 'pass'
+        }
+        failure {
+            // Echo 'fail'
         }
     }
 }
