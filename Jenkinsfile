@@ -11,6 +11,9 @@ pipeline {
             steps {
                 // Your test steps here
                 sh 'echo "Testing..."'
+                
+
+                
             }
         }
         stage('Deploy') {
@@ -19,16 +22,5 @@ pipeline {
                 sh 'echo "Deploying..."'
             }
         }
-    }
-    post {
-        success {
-            // Echo 'pass'
-        }
-        failure {
-            // Echo 'fail'
-        }
-    }
-
-
-    
+   
 }
