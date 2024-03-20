@@ -67,11 +67,9 @@ pipeline {
                     // https://www.jenkins.io/doc/pipeline/steps/htmlpublisher/
                     publishHTML (target: [
                        //reportDir: 'Chapter08/sample1/build/reports/tests/test',
-                       reportDir: ''
-                       //reportFiles: 'index.html',
-                       
-                        //reportName: "JaCoCo Report"
-                        
+                       reportDir: 'https://github.com/limacal/jenkins_repository/test'
+                       reportFiles: 'index.html',
+                       reportName: "JaCoCo Report"
                     ])                       
           }
     }
