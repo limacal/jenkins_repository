@@ -1,0 +1,31 @@
+plugins
+«groupId>org. jacoco</groupId>
+‹artifact Id>jacoco-maven-plugin</artifactld>
+«version>0.8.3</version>
+‹executions>
+«execution>
+<goals>
+<goal>prepare-agent</goal>
+</ goals>
+</ execution>
+cexecutions
+<id>jacoco-report</id>
+<naSeXLeST<012SC>
+<goals>
+<goal>reports/goal>
+</goals>
+‹! -- default target/jscoco/site/* -> «configuration>
+<outputDirectory>target/jacoco-report</outputDirectory>
+«dataFile>${project.build.directory}/coverage-reports/jacoco.exec</dataFile>
+<rules>
+<e>
+<element>CLASS</element>
+«excludes>
+«exclude>com.asimio.demo.Application</exclude>
+</excludes>
+</ rule>
+</ rules>
+</configuration>
+</execution>
+/ executions>
+</plugin>
