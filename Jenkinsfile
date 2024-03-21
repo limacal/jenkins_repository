@@ -58,16 +58,6 @@ pipeline {
                 }
             }
         }
-
-        
-        stage('Build and Test') {
-            steps {
-                // Execute build and test commands here
-                sh 'mvn clean install' // Example Maven command
-            }
-        }
-
-
         
     }
 
