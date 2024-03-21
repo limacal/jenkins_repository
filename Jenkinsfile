@@ -58,6 +58,8 @@ pipeline {
                 }
             }
         }
+    }
+
 
     post {
         always {
@@ -67,6 +69,5 @@ pipeline {
             // jacoco(execPattern: '**/target/jacoco.exec,**/other-path/jacoco.exec')
             }
         }
-        
-    }
+    
 }
