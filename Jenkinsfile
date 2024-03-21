@@ -1,6 +1,5 @@
 pipeline {
     agent any
-    
     stages {
         stage('Checkout') {
             steps {
@@ -10,20 +9,21 @@ pipeline {
         
         stage('Run Tests') {
             when {
-                // Run CodeCoverage test only on the main branch
+                // Run the CodeCoverage Test only on the MAIN Branch.
                 expression {
                     return env.BRANCH_NAME == 'main'
                 }
             }
             steps {
                 sh 'echo "Running CodeCoverage test"'
-                // Run CodeCoverage test here
+                // Run CodeCoverage test here (UNABLE TO RUN THE CODECOVERAGE)
+               
             }
         }
         
         stage('Run Other Tests') {
             when {
-                // Run other tests on non-main branches
+                // Run other Tests on non-main Branches.
                 not {
                     expression {
                         return env.BRANCH_NAME == 'main'
@@ -32,28 +32,29 @@ pipeline {
             }
             steps {
                 sh 'echo "Running other tests"'
-                // Run other tests here
+                // Run other tests HERE.
             }
         }
         
         stage('Generate Jacoco Report') {
             when {
                 expression {
-                    // Generate Jacoco report on the main branch or if the build is successful
+                    // Generate Jacoco report on the main branch or if the build is successful.
                     return env.BRANCH_NAME == 'main' || currentBuild.result == 'SUCCESS'
                 }
             }
             steps {
-                // Generate Jacoco report
+                // Generate Jacoco Report.
                 sh 'echo "Generating Jacoco report"'
-                // Include the command to generate Jacoco report here
+                // Include the command to generate Jacoco report here.
+                
             }
             post {
                 always {
                     // If tests fail, echo "tests fail!"
-                    echo 'tests pass!' // Assuming tests always pass for simplicity
+                    echo 'Tests FAIL!' // Assuming tests always pass for simplicity.
                     // If tests pass, echo "tests pass!"
-                    echo 'tests pass!'
+                    echo 'Tests PASS!'
                 }
             }
         }
