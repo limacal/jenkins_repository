@@ -1,23 +1,41 @@
 pipeline {
     agent any
+    
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                // Your build steps here
-                sh 'echo "Building..."'
+                checkout scm
             }
         }
-        stage('Test') {
+        
+        stage('Run Tests') {
+            when {
+                // Run CodeCoverage test only on the main branch
+                branch 'branch_1'
+            }
             steps {
-                // Your test steps here
-                sh 'echo "Testing..."'                
+                sh 'echo "Running CodeCoverage test"'
+                // Run CodeCoverage test here
+                echo "This is the BRANCH_1 Branch"
             }
         }
-        stage('Deploy') {
+
+        stage('Generate Jacoco Report') {
             steps {
-                // Your deployment steps here
-                sh 'echo "Deploying..."'
+                // Generate Jacoco report
+                sh 'echo "Generating Jacoco report"'
+                // Include the command to generate Jacoco report here
+                echo "This is the Jacoco Report"
+                        }
+            post {
+                always {
+                    // If tests fail, echo "tests fail!"
+                    echo 'TESTS FAILED!'
+                    // If tests pass, echo "tests pass!"
+                    echo 'TESTS PASSED!'
+                    
+                }
             }
         }
-   
+    }
 }
