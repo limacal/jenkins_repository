@@ -58,5 +58,15 @@ pipeline {
                 }
             }
         }
+
+    post {
+        always {
+            // Publish JaCoCo coverage reports
+            jacoco(execPattern: '**/target/jacoco.exec')
+            // You can specify multiple coverage report files by separating them with commas:
+            // jacoco(execPattern: '**/target/jacoco.exec,**/other-path/jacoco.exec')
+            }
+        }
+        
     }
 }
