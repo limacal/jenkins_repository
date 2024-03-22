@@ -6,7 +6,6 @@ pipeline {
                 checkout scm
             }
         }
-        
         stage('Run Tests') {
             when {
                 // Run the CodeCoverage Test only on the MAIN Branch.
@@ -17,7 +16,6 @@ pipeline {
             steps {
                 sh 'echo "Running CodeCoverage test"'
                 // Run CodeCoverage test here (UNABLE TO RUN THE CODECOVERAGE)
-               
             }
         }
         
